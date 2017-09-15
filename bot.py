@@ -18,7 +18,7 @@ async def ping(ctx):
     
 
 
-      await bot.process_commands(message)
+
 if not os.environ.get('TOKEN'):
   print("no token found REEEE!")
 bot.run(os.environ.get('TOKEN').strip('\"'))
