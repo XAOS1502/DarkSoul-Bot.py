@@ -10,8 +10,13 @@ async def on_ready():
 
 @bot.command()
 async def ping(ctx):
-  await ctx.send('Pong!')
-  
+        """Pong! Returns your websocket latency."""
+        em = discord.Embed()
+        em.title ='Pong! Websocket Latency:'
+        em.description = f"{self.ws.latency * 1000:.4f} ms"
+        em.color = await ctx.get_dominant_color(ctx.author.avatar_url)
+        await ctx.send(embed=em)
+        
 @bot.event
 async def on_message(message):
     if "(╯°□°）╯︵ ┻━┻" in message.content:
