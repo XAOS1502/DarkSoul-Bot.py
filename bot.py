@@ -15,11 +15,7 @@ async def ping(ctx):
     em.title ='Pong! Websocket Latency:'
     em.description = f"{bot.ws.latency * 1000:.4f} ms"
     await ctx.send(embed=em)
-        
-@bot.event
-async def on_message(message):
-    if "(╯°□°）╯︵ ┻━┻" in message.content:
-      await message.channel.send("┬─┬﻿ ノ( ゜-゜ノ)")
+    
 
 
       await bot.process_commands(message)
