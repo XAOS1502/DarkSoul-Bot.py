@@ -14,7 +14,6 @@ async def ping(ctx):
     em = discord.Embed()
     em.title ='Pong! Websocket Latency:'
     em.description = f"{bot.ws.latency * 1000:.4f} ms"
-    em.color = discord.colour.green()
     await ctx.send(embed=em)
         
 @bot.event
