@@ -18,5 +18,5 @@ async def on_message(message):
 
     await bot.process_commands(message)
 
-bot.run()
+bot.run(MzU4MzAwNjE3NjY1NTQ0MTk0.DJ3NCQ.MAIyOQ1ntr4bwyqOazVJReLmv6Q)
  
