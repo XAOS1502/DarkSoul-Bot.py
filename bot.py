@@ -22,7 +22,20 @@ async def on_message(message):
     if "(╯°□°）╯︵ ┻━┻" in message.content:
       await message.channel.send("┬─┬﻿ ノ( ゜-゜ノ)")
 
-    await bot.process_commands(message)
+@bot.command(pass_context=True)
+async def ping(ctx):
+    """Pong! Check your response time."""
+    msgtime = ctx.message.timestamp.now()
+    await (await bot.ws.ping())
+    now = datetime.datetime.now()
+    ping = now - msgtime
+    pong = discord.Embed(title='Pong! Response Time:',
+    					 description=str(ping.microseconds / 1000.0) + ' ms',
+                         color=0x00ffff)
+    await bot.say(embed=pong)
+
+
+      await bot.process_commands(message)
 if not os.environ.get('TOKEN'):
   print("no token found REEEE!")
 bot.run(os.environ.get('TOKEN').strip('\"'))
