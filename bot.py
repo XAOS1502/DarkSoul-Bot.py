@@ -28,7 +28,7 @@ async def _set(Type=None,*,thing=None):
     else:
       await bot.say('Usage: `.presence [game/stream] [message]`')
   
-  @bot.command()
+@bot.command()
 async def ping(ctx):
     """Pong! Returns your websocket latency."""
     em = discord.Embed()
