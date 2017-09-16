@@ -8,7 +8,7 @@ async def on_ready():
   print('Bot is online!')
   
 @bot.command(name='presence')
-@commands.check.is_owner
+@commands.check(is_owner)
 async def _set(ctx, Type=None,*,thing=None):
   """Change the bot's discord game/stream!"""
   if Type is None:
