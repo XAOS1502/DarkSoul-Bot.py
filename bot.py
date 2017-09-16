@@ -8,7 +8,7 @@ bot = commands.Bot(command_prefix='?')
 async def on_ready():
   print('Bot is online!')
 
-@bot.command(name='presence')
+  @bot.command(name='presence')
 async def _set(Type=None,*,thing=None):
     """Change the bot's discord game/stream!"""
     if Type is None:
