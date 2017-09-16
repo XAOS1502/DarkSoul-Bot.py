@@ -1,7 +1,9 @@
 import discord
 import os
+import sys
 from discord.ext import commands
-
+print(sys.version_info)
+print("IMPORTANT: ^PYTHON VERSION INFO")
 bot = commands.Bot(command_prefix='?')
 
 @bot.event
@@ -17,14 +19,14 @@ async def _set(Type=None,*,thing=None):
     if Type.lower() == 'stream':
       await bot.change_presence(game=discord.Game(name=thing,type=1,url='https://www.twitch.tv/a'),status='online')
       await bot.say('Set presence to. `Streaming {}`'.format(thing))
-  elif Type.lower() == 'game':
-    await bot.change_presence(game=discord.Game(name=thing))
-    await bot.say('Set presence to `Playing {}`'.format(thing))
-  elif Type.lower() == 'clear':
-    await bot.change_presence(game=None)
-    await bot.say('Cleared Presence')
-  else:
-    await bot.say('Usage: `.presence [game/stream] [message]`')
+    elif Type.lower() == 'game':
+      await bot.change_presence(game=discord.Game(name=thing))
+      await bot.say('Set presence to `Playing {}`'.format(thing))
+    elif Type.lower() == 'clear':
+      await bot.change_presence(game=None)
+      await bot.say('Cleared Presence')
+    else:
+      await bot.say('Usage: `.presence [game/stream] [message]`')
   
   @bot.command()
 async def ping(ctx):
