@@ -17,6 +17,11 @@ async def ping(ctx):
     await ctx.send(embed=em)
     
 
+@bot.command
+async def invite(ctx):
+    await ctx.send('https://discordapp.com/oauth2/authorize?client_id=358300617665544194&scope=bot&permissions=66186303')
+    
+
 
 
 if not os.environ.get('TOKEN'):
