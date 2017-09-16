@@ -1,13 +1,14 @@
 import discord
 import os
 from discord.ext import commands
-bot = commands.Bot(command_prefix='?',description="hi")
+bot = commands.Bot(command_prefix='?',description="hi",owner_id=292690616285134850)
 
 @bot.event
 async def on_ready():
   print('Bot is online!')
   
 @bot.command(name='presence')
+@commands.check.is_owner
 async def _set(ctx, Type=None,*,thing=None):
   """Change the bot's discord game/stream!"""
   if Type is None:
