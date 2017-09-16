@@ -1,9 +1,6 @@
 import discord
 import os
-import sys
 from discord.ext import commands
-print(sys.version_info)
-print("IMPORTANT: ^PYTHON VERSION INFO")
 bot = commands.Bot(command_prefix='?')
 
 @bot.event
