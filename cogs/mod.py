@@ -12,7 +12,7 @@ import io
 class Mod:
 
     @commands.command()
-    async def kick(self, ctx, member : discord.Member, *, reason=None):
+    async def kick(bot, ctx, member : discord.Member, *, reason=None):
         '''Kick someone from the server.'''
         try:
             await ctx.guild.kick(member, reason=reason)
@@ -21,6 +21,6 @@ class Mod:
         else:
             success = True
 
-        emb = await self.format_mod_embed(ctx, member, success, 'kick')
+        emb = await bot.format_mod_embed(ctx, member, success, 'kick')
 
         await ctx.send(embed=emb)
