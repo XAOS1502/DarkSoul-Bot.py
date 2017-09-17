@@ -3,6 +3,16 @@ import os
 from discord.ext import commands
 bot = commands.Bot(command_prefix='?',description="DarkSoul-Bot\nOwner: Free TNT#5796\n\nHelp Commands",owner_id=292690616285134850)
 
+    self._extensions = [x.replace('.py', '') for x in os.listdir('cogs') if x.endswith('.py')]
+
+for extension in self._extensions:
+            try:
+                self.load_extension(f'cogs.{extension}')
+                print(f'Loaded extension: {extension}')
+            except Exception as e:
+                print(f'LoadError: {extension}\n'
+                      f'{type(e).__name__}: {e}')
+
 @bot.event
 async def on_ready():
   print('Bot is online!')
