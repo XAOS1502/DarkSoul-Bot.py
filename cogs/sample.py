@@ -47,7 +47,7 @@ class Sample:  # Replace "Sample" with the name of the module here and at bottom
         emb.url = wik.url
         textList = textwrap.wrap(wik.content, 500, break_long_words=True, replace_whitespace=False)
         emb.add_field(name="Wikipedia Results", value=textList[0] + "...")
-        await ctx.send(embed=emb)
+        await ctx.channel.send(embed=emb)
 
     @commands.command(aliases=['av'])
     async def avatar(self, ctx, *, member: discord.Member = None):
@@ -61,7 +61,7 @@ class Sample:  # Replace "Sample" with the name of the module here and at bottom
         em = discord.Embed(url=av, colour=0xdd352f)
         em.set_author(name=str(member), icon_url=av)
         em.set_image(url=av)
-        await ctx.send(embed=em)
+        await ctx.channel.send(embed=em)
 
     @commands.command(pass_context=True)
     async def another(self, ctx):  # Replace "another" with the command name
