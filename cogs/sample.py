@@ -1,15 +1,22 @@
 import discord
 import wikipedia
 import textwrap
+import asyncio
+import psutil
+import random
+import pip
+import os
+import io
 from discord.ext import commands
 
 '''This is a sample cog (class) file'''
+
 
 class Sample:  # Replace "Sample" with the name of the module here and at bottom as well
 
     def __init__(self, bot):
         self.bot = bot
-        
+
     @commands.command(aliases=['wikipedia'], pass_context=True)
     async def wiki(self, ctx, *, search: str = None):
         '''Addictive Wikipedia results
@@ -44,7 +51,7 @@ class Sample:  # Replace "Sample" with the name of the module here and at bottom
         await ctx.message.edit(embed=emb)
 
     @commands.command(aliases=['av'])
-    async def avatar(self, ctx, *, member : discord.Member=None):
+    async def avatar(self, ctx, *, member: discord.Member = None):
         '''Returns someone's avatar url
         courtesy of verixx'''
         member = member or ctx.author
@@ -56,12 +63,13 @@ class Sample:  # Replace "Sample" with the name of the module here and at bottom
         em.set_author(name=str(member), icon_url=av)
         em.set_image(url=av)
         await ctx.send(embed=em)
-        
+
     @commands.command(pass_context=True)
     async def another(self, ctx):  # Replace "another" with the command name
         """Put the help message for "another" command here"""
         # Code starts on this line, indented 8 spaces.
         pass
+
 
 def setup(bot):
     bot.add_cog(Sample(bot))
